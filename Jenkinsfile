@@ -33,15 +33,16 @@ pipeline {
     }
 }
 
-        stage('Deploy to Kubernetes') {
+       stage('Deploy to Kubernetes') {
     steps {
         sh '''
-            export KUBECONFIG=/root/.kube/config  # Ensure Jenkins uses the correct kubeconfig
+            export KUBECONFIG=/var/lib/jenkins/.kube/config
             kubectl apply --validate=false -f regapp-deploy.yml
             kubectl apply --validate=false -f regapp-service.yml
         '''
     }
 }
+
 
 
     }
