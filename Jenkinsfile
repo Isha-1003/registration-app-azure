@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_REPO = 'your-docker-hub-username/registration-app'
+        DOCKER_HUB_REPO = 'ishaavi/registration-app'
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-github-username/registration-app-sanjaya.git'
+                git branch: 'main', url: 'https://github.com/Isha-1003/registration-app-azure.git'
             }
         }
 
