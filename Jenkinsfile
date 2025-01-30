@@ -34,12 +34,14 @@ pipeline {
 }
 
         stage('Deploy to Kubernetes') {
-            steps {
-                sh '''
-                    kubectl apply -f regapp-deploy.yml
-                    kubectl apply -f regapp-service.yml
-                '''
-            }
-        }
+    steps {
+        sh '''
+            export KUBECONFIG=$HOME/.kube/config
+            kubectl apply -f regapp-deploy.yml
+            kubectl apply -f regapp-service.yml
+        '''
+    }
+}
+
     }
 }
